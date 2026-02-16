@@ -12,6 +12,9 @@ services:
     volumes:
       - ../backend/src:/app/src
       - ../backend/prisma:/app/prisma
+      - ../backend/package.json:/app/package.json
+      - ../backend/package-lock.json:/app/package-lock.json
+      - backend_node_modules:/app/node_modules
 
   frontend:
     build:
@@ -21,3 +24,10 @@ services:
     env_file: ../frontend/.env
     volumes:
       - ../frontend/src:/app/src
+      - ../frontend/package.json:/app/package.json
+      - ../frontend/package-lock.json:/app/package-lock.json
+      - frontend_node_modules:/app/node_modules
+
+volumes:
+  backend_node_modules:
+  frontend_node_modules:
